@@ -13,7 +13,7 @@ A API tem 5 "root" endpoints:
 - Entries
 - Athletes
 
-E diversos outros endpoints alinhados aos supracitados. Por fim, *todas* as rotas da API são:
+E diversos outros endpoints alinhados aos supracitados. Por fim, **todas** as rotas da API são:
 
 ```
 GET  /api/v3/events/:event_id/results                       
@@ -30,6 +30,79 @@ GET  /api/v3/user/athlete
 POST /api/v3/user/athletes/:athlete_id/change_requests      
 GET  /api/v3/user/athletes/:id                              
 ```
+
+# Group Eventos - Público
+Essa seção agrupa requisições para os recursos públicos associados à **Event**.
+
+## Resultados do evento [/events/{event_id}/results?{filter}]
+
++ Parameters
+    + event_id: `1` (string) - O id do Evento.
+    + filter: `filter[name_eq]=Jhonny` (string) - Os filtros da requisição.
+
++ Model (application/json)
+
+    ```js
+    {
+      "data": [
+        {
+          "id": "1",
+          "type": "results",
+          "attributes": {
+            ...
+          }
+        },
+        {
+          "id": "2",
+          "type": "results",
+          "attributes": {
+            ...
+          }
+        }
+      ]
+    }
+    ```
+
+### Ver resultados do evento [GET]
+Retorna os resultados de um evento ordenados pelo tempo do atleta de forma crescente. Este endpoint aceita um parâmetro `filter` que deve ser um hash com uma ou mais das seguintes chaves:
+
+- Modalidade `modality_id_eq`
+- Categoria `category_id_eq`
+- Gênero `gender_eq`
+- Faixa etária `age_group_name_eq`
+- Nome `name_eq`
+- Número de peito `chest_number_eq`
+
++ Response 200
+
+    [Resultados do evento][]
+
+## Resultado de um atleta [/events/{event_id}/results/{id}]
+
++ Parameters
+    + event_id: `1` (string) - O id do Evento.
+    + id: `1` (string) - O id do Resultado.
+
++ Model (application/json)
+
+    ```js
+    {
+      "data": {
+        "id": "1",
+        "type": "results",
+        "attributes": {
+          ...
+        }
+      }
+    }
+    ```
+    
+### Ver resultado de um atleta [GET]
+Retorna o resultado de um atleta (ou equipe) no evento.
+
++ Response 200
+
+    [Resultado de um atleta][]
 
 # Group Eventos
 Essa seção agrupa requisições do recurso **Evento**
