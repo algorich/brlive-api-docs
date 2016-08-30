@@ -1,0 +1,876 @@
+FORMAT: 1A
+HOST: http://brlive.herokuapp.com/api/v3
+
+# BrLive
+
+API para integração dos aplicativos BrLive - Atleta e BrLive - Organizador com o BrLive Web.
+
+# Group Eventos
+Essa seção agrupa requisições do recurso **Evento**
+
+## Evento [/user/events/{id}?include={include}]
+Evento é o recurso básico do aplicativo. Esse recurso escopado em `user` traz informações específicas do usuário naquele evento, como o campo "user-transfered-entry".
+
++ Parameters
+    + id: `1` (string) - O id do Evento.
+    + include: `modalities.*.*` (string) - Os relacionamentos a serem incluídos.
+
++ Model (application/json)
+
+    ```js
+    {
+      "data": {
+        "id": "25",
+        "type": "events",
+        "attributes": {
+          "name": "Corrida de Exemplo",
+          "starting": null,
+          "address": null,
+          "map-link": "https://maps.googleapis.com/maps/api/staticmap?center=47.5952,-122.3316&zoom=16&size=640x400&path=weight:3%7Ccolor:blue%7Cenc:{coaHnetiVjM??_SkM??~R&key=AIzaSyA4rAT0fdTZLNkJ5o0uaAwZ89vVPQpr_Kc",
+          "logo-url": "http://placehold.it/300x300",
+          "user-transfered-entry": false,
+          "age-calculation-criteria": "Dia da prova"
+        },
+        "relationships": {
+          "modalities": {
+            "data": [
+              {
+                "id": "76",
+                "type": "modalities"
+              },
+              {
+                "id": "75",
+                "type": "modalities"
+              }
+            ]
+          },
+          "enrollments": {
+            "links": {
+              "related": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/25/enrollments"
+            }
+          }
+        },
+        "links": {
+          "enrollment": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/25/enrollment/",
+          "notifications": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772/notifications",
+          "versions": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772/versions",
+          "self": {
+            "href": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/25"
+          }
+        }
+      },
+      "included": [
+        {
+          "id": "76",
+          "type": "modalities",
+          "attributes": {
+            "name": "Corrida 10km",
+            "distance": 10,
+            "starting-female-racing-time": "2016-08-24 08:00:00 -0300",
+            "starting-male-racing-time": "2016-08-24 08:30:00 -0300",
+            "award-time-type": "Tempo real",
+            "age-group-award-time-type": "Tempo real",
+            "awards-limit": "3",
+            "age-group-awards-limit": "3",
+            "age-group-cumulative-award": "Não haverá acumulação de prêmios",
+            "age-calculation-criteria": "Dia da prova"
+          },
+          "relationships": {
+            "categorizations": {
+              "data": [
+                {
+                  "id": "44",
+                  "type": "categorizations"
+                },
+                {
+                  "id": "46",
+                  "type": "categorizations"
+                }
+              ]
+            },
+            "age-group": {
+              "data": {
+                "id": "40",
+                "type": "age-groups"
+              }
+            }
+          },
+          "links": {
+            "self": {
+              "href": "http://private-5425b-brlive.apiary-mock.com/api/v3/modalities/76"
+            }
+          }
+        },
+        {
+          "id": "44",
+          "type": "categorizations",
+          "attributes": {
+            "category-name": "Público Geral",
+            "starting-female-racing-time": "2016-08-24 08:00:00 -0300",
+            "starting-male-racing-time": "2016-08-24 08:30:00 -0300",
+            "award-time-type": "Tempo real",
+            "age-group-award-time-type": "Tempo real",
+            "awards-limit": "3",
+            "age-group-awards-limit": "3",
+            "age-group-cumulative-award": "Não haverá acumulação de prêmios",
+            "age-calculation-criteria": "Dia da prova"
+          },
+          "relationships": {
+            "age-group": {
+              "data": {
+                "id": "40",
+                "type": "age-groups"
+              }
+            }
+          }
+        },
+        {
+          "id": "40",
+          "type": "age-groups",
+          "attributes": {
+            "name": "De 2 a 2 anos",
+            "pretty-age-ranges": [
+              "16 a 20",
+              "21 a 25",
+              "26 a 30",
+              "31 a 35",
+              "36 a 40",
+              "41 a 45"
+            ]
+          },
+          "links": {
+            "self": {
+              "href": "http://private-5425b-brlive.apiary-mock.com/api/v3/modalities/40"
+            }
+          }
+        },
+        {
+          "id": "46",
+          "type": "categorizations",
+          "attributes": {
+            "category-name": "Associados",
+            "starting-female-racing-time": "2016-08-24 08:00:00 -0300",
+            "starting-male-racing-time": "2016-08-24 08:30:00 -0300",
+            "award-time-type": "Tempo real",
+            "age-group-award-time-type": "Tempo real",
+            "awards-limit": "3",
+            "age-group-awards-limit": "3",
+            "age-group-cumulative-award": "Não haverá acumulação de prêmios",
+            "age-calculation-criteria": "Dia da prova"
+          },
+          "relationships": {
+            "age-group": {
+              "data": {
+                "id": "40",
+                "type": "age-groups"
+              }
+            }
+          }
+        },
+        {
+          "id": "75",
+          "type": "modalities",
+          "attributes": {
+            "name": "Corrida 5km",
+            "distance": 5,
+            "starting-female-racing-time": "2016-08-24 08:00:00 -0300",
+            "starting-male-racing-time": "2016-08-24 08:30:00 -0300",
+            "award-time-type": "Tempo real",
+            "age-group-award-time-type": "Tempo real",
+            "awards-limit": "3",
+            "age-group-awards-limit": "3",
+            "age-group-cumulative-award": "Não haverá acumulação de prêmios",
+            "age-calculation-criteria": "Dia da prova"
+          },
+          "relationships": {
+            "categorizations": {
+              "data": [
+                {
+                  "id": "43",
+                  "type": "categorizations"
+                },
+                {
+                  "id": "45",
+                  "type": "categorizations"
+                }
+              ]
+            },
+            "age-group": {
+              "data": {
+                "id": "40",
+                "type": "age-groups"
+              }
+            }
+          },
+          "links": {
+            "self": {
+              "href": "http://private-5425b-brlive.apiary-mock.com/api/v3/modalities/75"
+            }
+          }
+        },
+        {
+          "id": "43",
+          "type": "categorizations",
+          "attributes": {
+            "category-name": "Público Geral",
+            "starting-female-racing-time": "2016-08-24 08:00:00 -0300",
+            "starting-male-racing-time": "2016-08-24 08:30:00 -0300",
+            "award-time-type": "Tempo real",
+            "age-group-award-time-type": "Tempo real",
+            "awards-limit": "3",
+            "age-group-awards-limit": "3",
+            "age-group-cumulative-award": "Não haverá acumulação de prêmios",
+            "age-calculation-criteria": "Dia da prova"
+          },
+          "relationships": {
+            "age-group": {
+              "data": {
+                "id": "40",
+                "type": "age-groups"
+              }
+            }
+          }
+        },
+        {
+          "id": "45",
+          "type": "categorizations",
+          "attributes": {
+            "category-name": "Associados",
+            "starting-female-racing-time": "2016-08-24 08:00:00 -0300",
+            "starting-male-racing-time": "2016-08-24 08:30:00 -0300",
+            "award-time-type": "Tempo real",
+            "age-group-award-time-type": "Tempo real",
+            "awards-limit": "3",
+            "age-group-awards-limit": "3",
+            "age-group-cumulative-award": "Não haverá acumulação de prêmios",
+            "age-calculation-criteria": "Dia da prova"
+          },
+          "relationships": {
+            "age-group": {
+              "data": {
+                "id": "40",
+                "type": "age-groups"
+              }
+            }
+          }
+        }
+      ]
+    }
+    ```
+    
+### Ver um Evento [GET]
+Retorna um evento específico.
+
++ Response 200
+
+    [Evento][]
+
+## Lista de Eventos [/user/events]
+Uma lista de recursos do tipo Evento.
+
++ Model (application/json)
+
+    ```js
+    {
+      "data": [
+        {
+          "id": "35",
+          "type": "events",
+          "attributes": {
+            "name": "12ª Corrida União Europeia",
+            "starting": "2016-05-15T08:05:07.000-03:00",
+            "address": null,
+            "map-link": "https://maps.googleapis.com/maps/api/staticmap?center=47.5952,-122.3316&zoom=16&size=640x400&path=weight:3%7Ccolor:blue%7Cenc:{coaHnetiVjM??_SkM??~R&key=AIzaSyA4rAT0fdTZLNkJ5o0uaAwZ89vVPQpr_Kc",
+            "logo-url": "http://placehold.it/300x300",
+            "user-transfered-entry": false
+          },
+          "relationships": {
+            "modalities": {},
+            "categorizations": {},
+            "enrollments": {
+              "links": {
+                "related": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/35/enrollments"
+              }
+            }
+          },
+          "links": {
+            "enrollment": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/35/enrollment/",
+            "notifications": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772/notifications",
+            "versions": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772/versions",
+            "self": {
+              "href": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/35"
+            }
+          }
+        },
+        {
+          "id": "23",
+          "type": "events",
+          "attributes": {
+            "name": "Corrida de Rua (Teste CronoMax)",
+            "starting": null,
+            "address": null,
+            "map-link": "http://maps.google.com",
+            "logo-url": "http://placehold.it/300x300",
+            "user-transfered-entry": false
+          },
+          "relationships": {
+            "modalities": {},
+            "categorizations": {},
+            "enrollments": {
+              "links": {
+                "related": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments"
+              }
+            }
+          },
+          "links": {
+            "enrollment": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollment/",
+            "notifications": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772/notifications",
+            "versions": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772/versions",
+            "self": {
+              "href": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23"
+            }
+          }
+        },
+        {
+          "id": "25",
+          "type": "events",
+          "attributes": {
+            "name": "Corrida de Exemplo",
+            "starting": null,
+            "address": null,
+            "map-link": "http://maps.google.com",
+            "logo-url": "http://placehold.it/300x300",
+            "user-transfered-entry": false
+          },
+          "relationships": {
+            "modalities": {},
+            "categorizations": {},
+            "enrollments": {
+              "links": {
+                "related": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/25/enrollments"
+              }
+            }
+          },
+          "links": {
+            "enrollment": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/25/enrollment/",
+            "notifications": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772/notifications",
+            "versions": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772/versions",
+            "self": {
+              "href": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/25"
+            }
+          }
+        }
+      ],
+      "links": {}
+    }
+    ```
+
+### Listar eventos [GET]
+Retorna uma lista de recursos do tipo Evento.
+
++ Response 200
+
+    [Lista de Eventos][]
+
+
+
+# Group Inscrições
+Essa seção agrupa requisições do recurso **Inscrição**
+
+## Inscrição [/user/events/{event_id}/enrollment/{?id}?include={include}]
+
+A inscrição é o recurso que liga um atleta (ou equipe) ao evento. Porém há um recurso intermediário, chamado Entry, 
+pois cada atleta possui atributos próprios de sua inscrição no evento, como chip, detecções, número de peito e faixa-etária.
+
+Em resumo, o relacionamento entre atleta e inscrição é feito da seguinte forma:
+
+`Inscrição -> Entries -> Atletas` 
+
++ Parameters
+    + id: `1` (string) - O id da Inscrição.
+    + event_id: `1` (string) - O id do Evento.
+    + include: `entries.*.*,modality,category` (optional, string) - Os relacionamentos a serem incluídos.
+
++ Model (application/json)
+
+    ```js
+    {
+      "data": {
+        "id": "24772",
+        "type": "enrollments",
+        "attributes": {
+          "chest-number": "1287",
+          "category": "Bombeiros",
+          "declassified": false,
+          "occurrencies": {},
+          "final-net-time": null,
+          "final-gross-time": null,
+          "final-pace-time": null,
+          "occurrency-rate": 0,
+          "modality-general-winner": false,
+          "modality-general-final-net-time-position": null,
+          "modality-general-final-gross-time-position": null,
+          "modality-age-group-winner": false,
+          "modality-age-group-final-net-time-position": null,
+          "modality-age-group-final-gross-time-position": null,
+          "category-general-winner": false,
+          "category-general-final-net-time-position": null,
+          "category-general-final-gross-time-position": null,
+          "category-age-group-winner": false,
+          "category-age-group-final-net-time-position": null,
+          "category-age-group-final-gross-time-position": null,
+          "kit-delivered": false
+        },
+        "relationships": {
+          "modality": {
+            "data": {
+              "id": "70",
+              "type": "modalities"
+            }
+          },
+          "category": {
+            "data": null
+          },
+          "entries": {
+            "data": [
+              {
+                "id": "24435",
+                "type": "entries"
+              }
+            ]
+          }
+        },
+        "links": {
+          "notifications": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772/notifications",
+          "self": {
+            "href": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772"
+          }
+        }
+      },
+      "included": [
+        {
+          "id": "70",
+          "type": "modalities",
+          "attributes": {
+            "name": "Caminhada",
+            "distance": 1
+          },
+          "relationships": {
+            "categorizations": {
+              "data": [
+                {
+                  "id": "33",
+                  "type": "categorizations"
+                },
+                {
+                  "id": "36",
+                  "type": "categorizations"
+                }
+              ]
+            }
+          },
+          "links": {
+            "self": {
+              "href": "http://private-5425b-brlive.apiary-mock.com/api/v3/modalities/70"
+            }
+          }
+        },
+        {
+          "id": "24435",
+          "type": "entries",
+          "attributes": {
+            "chest-number": "1287",
+            "age-group": "20 a 28 anos"
+          },
+          "relationships": {
+            "athlete": {
+              "data": {
+                "id": "1",
+                "type": "athletes"
+              },
+              "links": {
+                "self": null
+              }
+            }
+          }
+        },
+        {
+          "id": "1",
+          "type": "athletes",
+          "attributes": {
+            "name": "Leandro Naves",
+            "email": null,
+            "birthday": "1990-05-15T08:05:07.000-03:00",
+            "document": null,
+            "phone": null,
+            "gender": "M"
+          }
+        },
+        {
+          "id": "40",
+          "type": "age-groups",
+          "attributes": {
+            "name": "De 2 a 2 anos",
+            "pretty-age-ranges": [
+              "16 a 20",
+              "21 a 25",
+              "26 a 30",
+              "31 a 35",
+              "36 a 40",
+              "41 a 45"
+            ]
+          },
+          "links": {
+            "self": {
+              "href": "http://private-5425b-brlive.apiary-mock.com/api/v3/modalities/40"
+            }
+          }
+        }
+      ]
+    }
+    ```
+    
+### Ver uma Inscrição [GET]
+Retorna uma inscrição específica que o usuário tem acesso.
+
++ Response 200
+
+    [Inscrição][]
+
+## Lista de Inscrições em um evento [/user/events/{event_id}/enrollments?include={include}]
+Uma lista de recursos do tipo Inscrição que o usuário tem acesso no evento.
+
++ Parameters
+    + event_id: `1` (string) - O id do Evento.
+    + include: `entries.*.*,modality,category` (string) - Os relacionamentos a serem incluídos.
+
++ Model (application/json)
+
+    ```js
+    {
+      "data": [
+        {
+          "id": "24772",
+          "type": "enrollments",
+          "attributes": {
+            "chest-number": "1287",
+            "category": "Bombeiros",
+            "declassified": false,
+            "occurrencies": {},
+            "final-net-time": null,
+            "final-gross-time": null,
+            "final-pace-time": null,
+            "occurrency-rate": 0,
+            "modality-general-winner": false,
+            "modality-general-final-net-time-position": null,
+            "modality-general-final-gross-time-position": null,
+            "modality-age-group-winner": false,
+            "modality-age-group-final-net-time-position": null,
+            "modality-age-group-final-gross-time-position": null,
+            "category-general-winner": false,
+            "category-general-final-net-time-position": null,
+            "category-general-final-gross-time-position": null,
+            "category-age-group-winner": false,
+            "category-age-group-final-net-time-position": null,
+            "category-age-group-final-gross-time-position": null,
+            "kit-delivered": false
+          },
+          "relationships": {
+            "modality": {
+              "data": {
+                "id": "70",
+                "type": "modalities"
+              }
+            },
+            "category": {
+              "data": null
+            },
+            "entries": {
+              "data": [
+                {
+                  "id": "24435",
+                  "type": "entries"
+                }
+              ]
+            }
+          },
+          "links": {
+            "self": {
+              "href": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772"
+            }
+          }
+        }
+      ],
+      "included": [
+        {
+          "id": "70",
+          "type": "modalities",
+          "attributes": {
+            "name": "Caminhada",
+            "distance": 1
+          },
+          "relationships": {
+            "categorizations": {
+              "data": [
+                {
+                  "id": "33",
+                  "type": "categorizations"
+                },
+                {
+                  "id": "36",
+                  "type": "categorizations"
+                }
+              ]
+            }
+          },
+          "links": {
+            "self": {
+              "href": "http://private-5425b-brlive.apiary-mock.com/api/v3/modalities/70"
+            }
+          }
+        },
+        {
+          "id": "24435",
+          "type": "entries",
+          "attributes": {
+            "chest-number": "1287",
+            "age-group": "20 a 28 anos"
+          },
+          "relationships": {
+            "athlete": {
+              "data": {
+                "id": "1",
+                "type": "athletes"
+              },
+              "links": {
+                "self": null
+              }
+            }
+          }
+        },
+        {
+          "id": "1",
+          "type": "athletes",
+          "attributes": {
+            "name": "Leandro Naves",
+            "email": null,
+            "birthday": "1990-05-15T08:05:07.000-03:00",
+            "document": null,
+            "phone": null,
+            "gender": "M"
+          }
+        }
+      ],
+      "links": {}
+    }
+    ```
+
+### Listar inscrições [GET]
+Um usuário do tipo assessoria tem acesso a várias inscrições num mesmo evento. Portanto essa rota serve para retorna uma lista de recursos do tipo Inscrição que o usuário tem acesso no Evento.
+
++ Response 200
+
+    [Lista de Inscrições em um evento][]
+
+## Lista de Notificações de uma Inscrição - Pendente [/user/events/{event_id}/enrollments/{enrollment_id}/notifications]
+Uma lista de recursos do tipo Notificação relacionados à Inscrição.
+
++ Parameters
+    + event_id: `23` (string) - O id do Evento.
+    + enrollment_id: `24772` (string) - O id da inscrição.
+
++ Model (application/json)
+
+    ```js
+    {
+      "data": [
+        {
+          "id": "3",
+          "type": "notifications",
+          "attributes": {
+            "title": "Parabéns!",
+            "message": "Parabéns! Você completou os 10KM da Corrida de Reis em 00:00:00.",
+            "created_at": "2016-10-28T14:05:07.000-03:00",
+            "kind": "event_result",
+            "image-url": "http://placehold.it/300x300"
+          },
+          "relationships": {
+          },
+          "links": {
+            "self": {
+              "href": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772/notifications/3"
+            }
+          }
+        },
+        
+        {
+          "id": "2",
+          "type": "notifications",
+          "attributes": {
+            "title": "É hoje!",
+            "message": "Faltam 2h pra largada da Corrida de Reis. Já confirmou os seus dados e a sua inscrição?",
+            "created_at": "2016-10-28T06:10:07.000-03:00",
+            "kind": "event_reminder",
+            "image-url": "http://placehold.it/300x300"
+          },
+          "relationships": {
+          },
+          "links": {
+            "self": {
+              "href": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772/notifications/2"
+            }
+          }
+        },
+        {
+          "id": "1",
+          "type": "notifications",
+          "attributes": {
+            "title": "Dados inválidos",
+            "message": "Verificamos que a data de nascimento 11/10/1990 pode estar incorreta. Por favor, verifique seu cadastro.",
+            "created_at": "2016-10-26T16:20:07.000-03:00",
+            "kind": "invalid_data",
+            "image-url": "http://placehold.it/300x300"
+          },
+          "relationships": {
+          },
+          "links": {
+            "self": {
+              "href": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772/notifications/1"
+            }
+          }
+        }
+      ],
+      "included": [
+      ],
+      "links": {}
+    }
+    ```
+
+### Listar Notificações de uma Inscrição [GET]
+
+
++ Response 200
+
+    [Lista de Notificações de uma Inscrição - Pendente][]
+    
+    
+## Lista de Alterações de uma Inscrição - Pendente [/user/events/{event_id}/enrollments/{enrollment_id}/versions]
+Uma lista de recursos do tipo Version relacionados à Inscrição.
+
++ Parameters
+    + event_id: `23` (string) - O id do Evento.
+    + enrollment_id: `24772` (string) - O id da inscrição.
+
++ Model (application/json)
+
+    ```js
+    {
+      "data": [
+        {
+          "id": "2",
+          "type": "versions",
+          "attributes": {
+            "title": "Transferência de inscrição",
+            "changes": [
+              {
+                "old": "Rafael Carvalho",
+                "new": "Thawan Fidelis"
+              },
+              {
+                "old": "25 a 30 anos",
+                "new": "20 a 25 anos"
+              },
+              {
+                "old": "Geral",
+                "new": "Bombeiros"
+              }
+            ],
+            "change-message": "Solicitado por Rafael Carvalho e aceito pela Organização",
+            "created_at": "2016-10-24T15:50:07.000-03:00",
+            "kind": "enrollment"
+          },
+          "relationships": {
+          },
+          "links": {
+            "self": {
+              "href": "http://http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772/versions/2"
+            }
+          }
+        },
+        {
+          "id": "1",
+          "type": "versions",
+          "attributes": {
+            "title": "Mudança de faixa etária",
+            "changes": [
+              {
+                "old": "20 a 25 anos",
+                "new": "25 a 30 anos"
+              }
+            ],
+            "change-message": "Solicitado por Rafael Carvalho e aceito pela Organização",
+            "created_at": "2016-10-23T13:22:07.000-03:00",
+            "kind": "age_group"
+          },
+          "relationships": {
+          },
+          "links": {
+            "self": {
+              "href": "http://http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772/versions/1"
+            }
+          }
+        }
+      ],
+      "included": [
+      ],
+      "links": {}
+    }
+    ```
+
+### Listar Alterações de uma Inscrição [GET]
+
+
++ Response 200
+
+    [Lista de Alterações de uma Inscrição - Pendente][]
+
+# Group Atletas
+Essa seção agrupa requisições do recurso **Atleta**
+
+## Atleta [/user]
+
++ Model (application/json)
+
+    ```js
+    {
+      "data": {
+        "id": "1",
+        "type": "athletes",
+        "attributes": {
+          "name": "Rafael Carvalho",
+          "gender": "M",
+          "birthday": "1993-08-24",
+          "document": "123.123.123-12",
+          "phone": "22993214823",
+          "avatar": "http://placehold.it/300x300",
+          "avatar-from-central": "true"
+        },
+        "relationships": {
+        },
+        "links": {
+          "self": {
+            "href": "http://private-5425b-brlive.apiary-mock.com/api/v3/user"
+          }
+        }
+      },
+      "included": [
+      ]
+    }
+    ```
+    
+### Ver um atleta [GET]
+Retorna o atleta que está autenticado.
+
++ Response 200
+
+    [Atleta][]
