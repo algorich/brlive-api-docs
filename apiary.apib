@@ -107,6 +107,115 @@ Retorna o resultado de um atleta (ou equipe) no evento.
 # Group Eventos
 Essa seção agrupa requisições do recurso **Evento**
 
+
+## Lista de Eventos [/user/events]
+Uma lista de recursos do tipo Evento.
+
++ Model (application/json)
+
+    ```js
+    {
+      "data": [
+        {
+          "id": "35",
+          "type": "events",
+          "attributes": {
+            "name": "12ª Corrida União Europeia",
+            "starting": "2016-05-15T08:05:07.000-03:00",
+            "address": null,
+            "map-link": "https://maps.googleapis.com/maps/api/staticmap?center=47.5952,-122.3316&zoom=16&size=640x400&path=weight:3%7Ccolor:blue%7Cenc:{coaHnetiVjM??_SkM??~R&key=AIzaSyA4rAT0fdTZLNkJ5o0uaAwZ89vVPQpr_Kc",
+            "logo-url": "http://placehold.it/300x300",
+            "user-transfered-entry": false
+          },
+          "relationships": {
+            "modalities": {},
+            "categorizations": {},
+            "enrollments": {
+              "links": {
+                "related": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/35/enrollments"
+              }
+            }
+          },
+          "links": {
+            "enrollment": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/35/enrollment/",
+            "notifications": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772/notifications",
+            "versions": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772/versions",
+            "self": {
+              "href": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/35"
+            }
+          }
+        },
+        {
+          "id": "23",
+          "type": "events",
+          "attributes": {
+            "name": "Corrida de Rua (Teste CronoMax)",
+            "starting": null,
+            "address": null,
+            "map-link": "http://maps.google.com",
+            "logo-url": "http://placehold.it/300x300",
+            "user-transfered-entry": false
+          },
+          "relationships": {
+            "modalities": {},
+            "categorizations": {},
+            "enrollments": {
+              "links": {
+                "related": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments"
+              }
+            }
+          },
+          "links": {
+            "enrollment": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollment/",
+            "notifications": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772/notifications",
+            "versions": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772/versions",
+            "self": {
+              "href": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23"
+            }
+          }
+        },
+        {
+          "id": "25",
+          "type": "events",
+          "attributes": {
+            "name": "Corrida de Exemplo",
+            "starting": null,
+            "address": null,
+            "map-link": "http://maps.google.com",
+            "logo-url": "http://placehold.it/300x300",
+            "user-transfered-entry": false
+          },
+          "relationships": {
+            "modalities": {},
+            "categorizations": {},
+            "enrollments": {
+              "links": {
+                "related": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/25/enrollments"
+              }
+            }
+          },
+          "links": {
+            "enrollment": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/25/enrollment/",
+            "notifications": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772/notifications",
+            "versions": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772/versions",
+            "self": {
+              "href": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/25"
+            }
+          }
+        }
+      ],
+      "links": {}
+    }
+    ```
+
+### Listar eventos [GET]
+Retorna uma lista de recursos do tipo Evento.
+
++ Response 200
+
+    [Lista de Eventos][]
+    
+
 ## Evento [/user/events/{id}?include={include}]
 Evento é o recurso básico do aplicativo. Esse recurso escopado em `user` traz informações específicas do usuário naquele evento, como o campo "user-transfered-entry".
 
@@ -363,114 +472,6 @@ Retorna um evento específico.
 + Response 200
 
     [Evento][]
-
-## Lista de Eventos [/user/events]
-Uma lista de recursos do tipo Evento.
-
-+ Model (application/json)
-
-    ```js
-    {
-      "data": [
-        {
-          "id": "35",
-          "type": "events",
-          "attributes": {
-            "name": "12ª Corrida União Europeia",
-            "starting": "2016-05-15T08:05:07.000-03:00",
-            "address": null,
-            "map-link": "https://maps.googleapis.com/maps/api/staticmap?center=47.5952,-122.3316&zoom=16&size=640x400&path=weight:3%7Ccolor:blue%7Cenc:{coaHnetiVjM??_SkM??~R&key=AIzaSyA4rAT0fdTZLNkJ5o0uaAwZ89vVPQpr_Kc",
-            "logo-url": "http://placehold.it/300x300",
-            "user-transfered-entry": false
-          },
-          "relationships": {
-            "modalities": {},
-            "categorizations": {},
-            "enrollments": {
-              "links": {
-                "related": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/35/enrollments"
-              }
-            }
-          },
-          "links": {
-            "enrollment": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/35/enrollment/",
-            "notifications": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772/notifications",
-            "versions": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772/versions",
-            "self": {
-              "href": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/35"
-            }
-          }
-        },
-        {
-          "id": "23",
-          "type": "events",
-          "attributes": {
-            "name": "Corrida de Rua (Teste CronoMax)",
-            "starting": null,
-            "address": null,
-            "map-link": "http://maps.google.com",
-            "logo-url": "http://placehold.it/300x300",
-            "user-transfered-entry": false
-          },
-          "relationships": {
-            "modalities": {},
-            "categorizations": {},
-            "enrollments": {
-              "links": {
-                "related": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments"
-              }
-            }
-          },
-          "links": {
-            "enrollment": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollment/",
-            "notifications": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772/notifications",
-            "versions": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772/versions",
-            "self": {
-              "href": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23"
-            }
-          }
-        },
-        {
-          "id": "25",
-          "type": "events",
-          "attributes": {
-            "name": "Corrida de Exemplo",
-            "starting": null,
-            "address": null,
-            "map-link": "http://maps.google.com",
-            "logo-url": "http://placehold.it/300x300",
-            "user-transfered-entry": false
-          },
-          "relationships": {
-            "modalities": {},
-            "categorizations": {},
-            "enrollments": {
-              "links": {
-                "related": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/25/enrollments"
-              }
-            }
-          },
-          "links": {
-            "enrollment": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/25/enrollment/",
-            "notifications": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772/notifications",
-            "versions": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772/versions",
-            "self": {
-              "href": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/25"
-            }
-          }
-        }
-      ],
-      "links": {}
-    }
-    ```
-
-### Listar eventos [GET]
-Retorna uma lista de recursos do tipo Evento.
-
-+ Response 200
-
-    [Lista de Eventos][]
-
 
 
 # Group Inscrições
