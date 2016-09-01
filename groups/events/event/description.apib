@@ -1,0 +1,249 @@
+## Evento [/user/events/{id}?include={include}]
+Evento é o recurso básico do aplicativo. Esse recurso escopado em `user` traz informações específicas do usuário naquele evento, como o campo "user-transfered-entry".
+
++ Parameters
+    + id: `1` (string) - O id do Evento.
+    + include: `modalities.*.*` (string) - Os relacionamentos a serem incluídos.
+
++ Model (application/json)
+
+    ```js
+    {
+      "data": {
+        "id": "25",
+        "type": "events",
+        "attributes": {
+          "name": "Corrida de Exemplo",
+          "starting": null,
+          "address": null,
+          "map-link": "https://maps.googleapis.com/maps/api/staticmap?center=47.5952,-122.3316&zoom=16&size=640x400&path=weight:3%7Ccolor:blue%7Cenc:{coaHnetiVjM??_SkM??~R&key=AIzaSyA4rAT0fdTZLNkJ5o0uaAwZ89vVPQpr_Kc",
+          "logo-url": "http://placehold.it/300x300",
+          "user-transfered-entry": false,
+          "age-calculation-criteria": "Dia da prova"
+        },
+        "relationships": {
+          "modalities": {
+            "data": [
+              {
+                "id": "76",
+                "type": "modalities"
+              },
+              {
+                "id": "75",
+                "type": "modalities"
+              }
+            ]
+          },
+          "enrollments": {
+            "links": {
+              "related": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/25/enrollments"
+            }
+          }
+        },
+        "links": {
+          "enrollment": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/25/enrollment/",
+          "notifications": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772/notifications",
+          "versions": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772/versions",
+          "self": {
+            "href": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/25"
+          }
+        }
+      },
+      "included": [
+        {
+          "id": "76",
+          "type": "modalities",
+          "attributes": {
+            "name": "Corrida 10km",
+            "distance": 10,
+            "starting-female-racing-time": "2016-08-24 08:00:00 -0300",
+            "starting-male-racing-time": "2016-08-24 08:30:00 -0300",
+            "award-time-type": "Tempo real",
+            "age-group-award-time-type": "Tempo real",
+            "awards-limit": "3",
+            "age-group-awards-limit": "3",
+            "age-group-cumulative-award": "Não haverá acumulação de prêmios",
+            "age-calculation-criteria": "Dia da prova"
+          },
+          "relationships": {
+            "categorizations": {
+              "data": [
+                {
+                  "id": "44",
+                  "type": "categorizations"
+                },
+                {
+                  "id": "46",
+                  "type": "categorizations"
+                }
+              ]
+            },
+            "age-group": {
+              "data": {
+                "id": "40",
+                "type": "age-groups"
+              }
+            }
+          },
+          "links": {
+            "self": {
+              "href": "http://private-5425b-brlive.apiary-mock.com/api/v3/modalities/76"
+            }
+          }
+        },
+        {
+          "id": "44",
+          "type": "categorizations",
+          "attributes": {
+            "category-name": "Público Geral",
+            "starting-female-racing-time": "2016-08-24 08:00:00 -0300",
+            "starting-male-racing-time": "2016-08-24 08:30:00 -0300",
+            "award-time-type": "Tempo real",
+            "age-group-award-time-type": "Tempo real",
+            "awards-limit": "3",
+            "age-group-awards-limit": "3",
+            "age-group-cumulative-award": "Não haverá acumulação de prêmios",
+            "age-calculation-criteria": "Dia da prova"
+          },
+          "relationships": {
+            "age-group": {
+              "data": {
+                "id": "40",
+                "type": "age-groups"
+              }
+            }
+          }
+        },
+        {
+          "id": "40",
+          "type": "age-groups",
+          "attributes": {
+            "name": "De 2 a 2 anos",
+            "pretty-age-ranges": [
+              "16 a 20",
+              "21 a 25",
+              "26 a 30",
+              "31 a 35",
+              "36 a 40",
+              "41 a 45"
+            ]
+          },
+          "links": {
+            "self": {
+              "href": "http://private-5425b-brlive.apiary-mock.com/api/v3/modalities/40"
+            }
+          }
+        },
+        {
+          "id": "46",
+          "type": "categorizations",
+          "attributes": {
+            "category-name": "Associados",
+            "starting-female-racing-time": "2016-08-24 08:00:00 -0300",
+            "starting-male-racing-time": "2016-08-24 08:30:00 -0300",
+            "award-time-type": "Tempo real",
+            "age-group-award-time-type": "Tempo real",
+            "awards-limit": "3",
+            "age-group-awards-limit": "3",
+            "age-group-cumulative-award": "Não haverá acumulação de prêmios",
+            "age-calculation-criteria": "Dia da prova"
+          },
+          "relationships": {
+            "age-group": {
+              "data": {
+                "id": "40",
+                "type": "age-groups"
+              }
+            }
+          }
+        },
+        {
+          "id": "75",
+          "type": "modalities",
+          "attributes": {
+            "name": "Corrida 5km",
+            "distance": 5,
+            "starting-female-racing-time": "2016-08-24 08:00:00 -0300",
+            "starting-male-racing-time": "2016-08-24 08:30:00 -0300",
+            "award-time-type": "Tempo real",
+            "age-group-award-time-type": "Tempo real",
+            "awards-limit": "3",
+            "age-group-awards-limit": "3",
+            "age-group-cumulative-award": "Não haverá acumulação de prêmios",
+            "age-calculation-criteria": "Dia da prova"
+          },
+          "relationships": {
+            "categorizations": {
+              "data": [
+                {
+                  "id": "43",
+                  "type": "categorizations"
+                },
+                {
+                  "id": "45",
+                  "type": "categorizations"
+                }
+              ]
+            },
+            "age-group": {
+              "data": {
+                "id": "40",
+                "type": "age-groups"
+              }
+            }
+          },
+          "links": {
+            "self": {
+              "href": "http://private-5425b-brlive.apiary-mock.com/api/v3/modalities/75"
+            }
+          }
+        },
+        {
+          "id": "43",
+          "type": "categorizations",
+          "attributes": {
+            "category-name": "Público Geral",
+            "starting-female-racing-time": "2016-08-24 08:00:00 -0300",
+            "starting-male-racing-time": "2016-08-24 08:30:00 -0300",
+            "award-time-type": "Tempo real",
+            "age-group-award-time-type": "Tempo real",
+            "awards-limit": "3",
+            "age-group-awards-limit": "3",
+            "age-group-cumulative-award": "Não haverá acumulação de prêmios",
+            "age-calculation-criteria": "Dia da prova"
+          },
+          "relationships": {
+            "age-group": {
+              "data": {
+                "id": "40",
+                "type": "age-groups"
+              }
+            }
+          }
+        },
+        {
+          "id": "45",
+          "type": "categorizations",
+          "attributes": {
+            "category-name": "Associados",
+            "starting-female-racing-time": "2016-08-24 08:00:00 -0300",
+            "starting-male-racing-time": "2016-08-24 08:30:00 -0300",
+            "award-time-type": "Tempo real",
+            "age-group-award-time-type": "Tempo real",
+            "awards-limit": "3",
+            "age-group-awards-limit": "3",
+            "age-group-cumulative-award": "Não haverá acumulação de prêmios",
+            "age-calculation-criteria": "Dia da prova"
+          },
+          "relationships": {
+            "age-group": {
+              "data": {
+                "id": "40",
+                "type": "age-groups"
+              }
+            }
+          }
+        }
+      ]
+    }
+    ```

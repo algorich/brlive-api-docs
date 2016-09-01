@@ -1,0 +1,127 @@
+## Lista de Inscrições [/user/events/{event_id}/enrollments?include={include}]
+Uma lista de recursos do tipo Inscrição que o usuário tem acesso no evento.
+
++ Parameters
+    + event_id: `1` (string) - O id do Evento.
+    + include: `entries.*.*,modality,category` (string) - Os relacionamentos a serem incluídos.
+
++ Model (application/json)
+
+    ```js
+    {
+      "data": [
+        {
+          "id": "24772",
+          "type": "enrollments",
+          "attributes": {
+            "chest-number": "1287",
+            "category": "Bombeiros",
+            "declassified": false,
+            "occurrencies": {},
+            "final-net-time": null,
+            "final-gross-time": null,
+            "final-pace-time": null,
+            "occurrency-rate": 0,
+            "modality-general-winner": false,
+            "modality-general-final-net-time-position": null,
+            "modality-general-final-gross-time-position": null,
+            "modality-age-group-winner": false,
+            "modality-age-group-final-net-time-position": null,
+            "modality-age-group-final-gross-time-position": null,
+            "category-general-winner": false,
+            "category-general-final-net-time-position": null,
+            "category-general-final-gross-time-position": null,
+            "category-age-group-winner": false,
+            "category-age-group-final-net-time-position": null,
+            "category-age-group-final-gross-time-position": null,
+            "kit-delivered": false
+          },
+          "relationships": {
+            "modality": {
+              "data": {
+                "id": "70",
+                "type": "modalities"
+              }
+            },
+            "category": {
+              "data": null
+            },
+            "entries": {
+              "data": [
+                {
+                  "id": "24435",
+                  "type": "entries"
+                }
+              ]
+            }
+          },
+          "links": {
+            "self": {
+              "href": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772"
+            }
+          }
+        }
+      ],
+      "included": [
+        {
+          "id": "70",
+          "type": "modalities",
+          "attributes": {
+            "name": "Caminhada",
+            "distance": 1
+          },
+          "relationships": {
+            "categorizations": {
+              "data": [
+                {
+                  "id": "33",
+                  "type": "categorizations"
+                },
+                {
+                  "id": "36",
+                  "type": "categorizations"
+                }
+              ]
+            }
+          },
+          "links": {
+            "self": {
+              "href": "http://private-5425b-brlive.apiary-mock.com/api/v3/modalities/70"
+            }
+          }
+        },
+        {
+          "id": "24435",
+          "type": "entries",
+          "attributes": {
+            "chest-number": "1287",
+            "age-group": "20 a 28 anos"
+          },
+          "relationships": {
+            "athlete": {
+              "data": {
+                "id": "1",
+                "type": "athletes"
+              },
+              "links": {
+                "self": null
+              }
+            }
+          }
+        },
+        {
+          "id": "1",
+          "type": "athletes",
+          "attributes": {
+            "name": "Leandro Naves",
+            "email": null,
+            "birthday": "1990-05-15T08:05:07.000-03:00",
+            "document": null,
+            "phone": null,
+            "gender": "M"
+          }
+        }
+      ],
+      "links": {}
+    }
+    ```

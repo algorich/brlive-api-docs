@@ -1,0 +1,28 @@
+## Resultados do evento [/events/{event_id}/results?{filter}]
+
++ Parameters
+    + event_id: `1` (string) - O id do Evento.
+    + filter: `filter[name_eq]=Jhonny` (string) - Os filtros da requisição.
+
++ Model (application/json)
+
+    ```js
+    {
+      "data": [
+        {
+          "id": "1",
+          "type": "results",
+          "attributes": {
+            ...
+          }
+        },
+        {
+          "id": "2",
+          "type": "results",
+          "attributes": {
+            ...
+          }
+        }
+      ]
+    }
+    ```

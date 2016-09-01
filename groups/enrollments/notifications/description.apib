@@ -1,0 +1,73 @@
+## Lista de Notificações [/user/events/{event_id}/enrollments/{enrollment_id}/notifications]
+Uma lista de recursos do tipo Notificação relacionados à Inscrição.
+
++ Parameters
+    + event_id: `23` (string) - O id do Evento.
+    + enrollment_id: `24772` (string) - O id da inscrição.
+
++ Model (application/json)
+
+    ```js
+    {
+      "data": [
+        {
+          "id": "3",
+          "type": "notifications",
+          "attributes": {
+            "title": "Parabéns!",
+            "message": "Parabéns! Você completou os 10KM da Corrida de Reis em 00:00:00.",
+            "created_at": "2016-10-28T14:05:07.000-03:00",
+            "kind": "event_result",
+            "image-url": "http://placehold.it/300x300"
+          },
+          "relationships": {
+          },
+          "links": {
+            "self": {
+              "href": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772/notifications/3"
+            }
+          }
+        },
+
+        {
+          "id": "2",
+          "type": "notifications",
+          "attributes": {
+            "title": "É hoje!",
+            "message": "Faltam 2h pra largada da Corrida de Reis. Já confirmou os seus dados e a sua inscrição?",
+            "created_at": "2016-10-28T06:10:07.000-03:00",
+            "kind": "event_reminder",
+            "image-url": "http://placehold.it/300x300"
+          },
+          "relationships": {
+          },
+          "links": {
+            "self": {
+              "href": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772/notifications/2"
+            }
+          }
+        },
+        {
+          "id": "1",
+          "type": "notifications",
+          "attributes": {
+            "title": "Dados inválidos",
+            "message": "Verificamos que a data de nascimento 11/10/1990 pode estar incorreta. Por favor, verifique seu cadastro.",
+            "created_at": "2016-10-26T16:20:07.000-03:00",
+            "kind": "invalid_data",
+            "image-url": "http://placehold.it/300x300"
+          },
+          "relationships": {
+          },
+          "links": {
+            "self": {
+              "href": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772/notifications/1"
+            }
+          }
+        }
+      ],
+      "included": [
+      ],
+      "links": {}
+    }
+    ```

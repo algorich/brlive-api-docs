@@ -1,0 +1,152 @@
+## Inscrição [/user/events/{event_id}/enrollment/{?id}?include={include}]
+
+A inscrição é o recurso que liga um atleta (ou equipe) ao evento. Porém há um recurso intermediário, chamado Entry,
+pois cada atleta possui atributos próprios de sua inscrição no evento, como chip, detecções, número de peito e faixa-etária.
+
+Em resumo, o relacionamento entre atleta e inscrição é feito da seguinte forma:
+
+`Inscrição -> Entries -> Atletas`
+
++ Parameters
+    + id: `1` (string) - O id da Inscrição.
+    + event_id: `1` (string) - O id do Evento.
+    + include: `entries.*.*,modality,category` (optional, string) - Os relacionamentos a serem incluídos.
+
++ Model (application/json)
+
+    ```js
+    {
+      "data": {
+        "id": "24772",
+        "type": "enrollments",
+        "attributes": {
+          "chest-number": "1287",
+          "category": "Bombeiros",
+          "declassified": false,
+          "occurrencies": {},
+          "final-net-time": null,
+          "final-gross-time": null,
+          "final-pace-time": null,
+          "occurrency-rate": 0,
+          "modality-general-winner": false,
+          "modality-general-final-net-time-position": null,
+          "modality-general-final-gross-time-position": null,
+          "modality-age-group-winner": false,
+          "modality-age-group-final-net-time-position": null,
+          "modality-age-group-final-gross-time-position": null,
+          "category-general-winner": false,
+          "category-general-final-net-time-position": null,
+          "category-general-final-gross-time-position": null,
+          "category-age-group-winner": false,
+          "category-age-group-final-net-time-position": null,
+          "category-age-group-final-gross-time-position": null,
+          "kit-delivered": false
+        },
+        "relationships": {
+          "modality": {
+            "data": {
+              "id": "70",
+              "type": "modalities"
+            }
+          },
+          "category": {
+            "data": null
+          },
+          "entries": {
+            "data": [
+              {
+                "id": "24435",
+                "type": "entries"
+              }
+            ]
+          }
+        },
+        "links": {
+          "notifications": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772/notifications",
+          "self": {
+            "href": "http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772"
+          }
+        }
+      },
+      "included": [
+        {
+          "id": "70",
+          "type": "modalities",
+          "attributes": {
+            "name": "Caminhada",
+            "distance": 1
+          },
+          "relationships": {
+            "categorizations": {
+              "data": [
+                {
+                  "id": "33",
+                  "type": "categorizations"
+                },
+                {
+                  "id": "36",
+                  "type": "categorizations"
+                }
+              ]
+            }
+          },
+          "links": {
+            "self": {
+              "href": "http://private-5425b-brlive.apiary-mock.com/api/v3/modalities/70"
+            }
+          }
+        },
+        {
+          "id": "24435",
+          "type": "entries",
+          "attributes": {
+            "chest-number": "1287",
+            "age-group": "20 a 28 anos"
+          },
+          "relationships": {
+            "athlete": {
+              "data": {
+                "id": "1",
+                "type": "athletes"
+              },
+              "links": {
+                "self": null
+              }
+            }
+          }
+        },
+        {
+          "id": "1",
+          "type": "athletes",
+          "attributes": {
+            "name": "Leandro Naves",
+            "email": null,
+            "birthday": "1990-05-15T08:05:07.000-03:00",
+            "document": null,
+            "phone": null,
+            "gender": "M"
+          }
+        },
+        {
+          "id": "40",
+          "type": "age-groups",
+          "attributes": {
+            "name": "De 2 a 2 anos",
+            "pretty-age-ranges": [
+              "16 a 20",
+              "21 a 25",
+              "26 a 30",
+              "31 a 35",
+              "36 a 40",
+              "41 a 45"
+            ]
+          },
+          "links": {
+            "self": {
+              "href": "http://private-5425b-brlive.apiary-mock.com/api/v3/modalities/40"
+            }
+          }
+        }
+      ]
+    }
+    ```

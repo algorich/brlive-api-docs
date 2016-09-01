@@ -1,0 +1,13 @@
+### Ver resultados do evento [GET]
+Retorna os resultados de um evento ordenados pelo tempo do atleta de forma crescente. Este endpoint aceita um parâmetro `filter` que deve ser um hash com uma ou mais das seguintes chaves:
+
+- Modalidade `modality_id_eq`
+- Categoria `category_id_eq`
+- Gênero `gender_eq`
+- Faixa etária `age_group_name_eq`
+- Nome `name_eq`
+- Número de peito `chest_number_eq`
+
++ Response 200
+
+    [Resultados do evento][]
