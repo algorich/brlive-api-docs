@@ -402,6 +402,42 @@ Uma lista de recursos do tipo Version relacionados à Inscrição.
 
     [Lista de Alterações][]
 
+# Group Entries
+Essa seção agrupa requisições do recurso **Entry**, que é o recurso que une o Atleta à Inscrição.
+
+## Pedidos de transferência [/user/entries/{entry_id}/transfers]
+
+
+### Criar pedido de transferência [POST]
+Cria um novo pedido de transferência para aquela Entry. Ou seja, o recurso que, mediante autorização do organizador, irá trocar o atleta daquela Entry.
+
+(TODO: Atualizar parâmetros, request e resposta.)
+
++ Parameters
+
+    + name (required, string, `My Amazing App`)...Your application's name.
+    + production (required, `boolean`)...If your application is set to production or not.
+    + category (required, string, `Business`)...Your application's category.
+    + actionCategories (optional, array, `[{"name:"My Template", type:"re.notifica.notification.Alert", actions: [{label:"Reply", type:"re.notifica.action.Callback", target:"", camera:false, keyboard:false, destructive:false}"}]`)...An array of objects that can be used as templates for messages.
+
++ Request (application/json)
+
+        {
+                "name":"My Amazing App",
+                "production": true,
+                "category": "Business"
+        }
+
+
++ Response 201 (application/json; charset=utf-8)
+
+        {
+                "application":{
+                                  "_id":"5245bc5b3e66a3b01f0024d4"
+                              }
+        }
+
+
 # Group Eventos
 Essa seção agrupa requisições do recurso **Evento**
 
