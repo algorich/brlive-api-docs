@@ -35,7 +35,7 @@ GET  /api/v3/user/athletes/:id
 Essa seção agrupa requisições do recurso **Atleta**
 
 
-## Atleta [/user]
+## Atleta [/user/athlete]
 
 + Model (application/json)
 
@@ -53,25 +53,23 @@ Essa seção agrupa requisições do recurso **Atleta**
           "avatar": "http://placehold.it/300x300",
           "avatar-from-central": "true"
         },
-        "relationships": {
-        },
         "links": {
           "self": {
             "href": "http://private-5425b-brlive.apiary-mock.com/api/v3/user"
           }
         }
-      },
-      "included": [
-      ]
+      }
     }
     ```
 
-### Ver um atleta [GET]
+
+### Ver o atleta [GET]
 Retorna o atleta que está autenticado.
 
 + Response 200
 
     [Atleta][]
+
 
 # Group Inscrições
 Essa seção agrupa requisições do recurso **Inscrição**
@@ -569,6 +567,7 @@ Uma lista de recursos do tipo Inscrição que o usuário tem acesso no evento.
       "links": {}
     }
     ```
+
 
 ### Listar inscrições [GET]
 Um usuário do tipo assessoria tem acesso a várias inscrições num mesmo evento. Portanto essa rota serve para retorna uma lista de recursos do tipo Inscrição que o usuário tem acesso no Evento.
