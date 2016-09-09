@@ -35,7 +35,46 @@ GET  /api/v3/user/athletes/:id
 Essa seção agrupa requisições do recurso **Atleta**
 
 
-## Atleta [/user/athlete]
+## Atleta [/user/athletes/{id}]
+
++ Parameters
+    + id: `1` (string) - O id do Atleta.
+
++ Model (application/json)
+
+    ```js
+    {
+      "data": {
+        "id": "1",
+        "type": "athletes",
+        "attributes": {
+          "name": "Rafael Carvalho",
+          "gender": "M",
+          "birthday": "1993-08-24",
+          "document": "123.123.123-12",
+          "phone": "22993214823",
+          "avatar": "http://placehold.it/300x300",
+          "avatar-from-central": "true"
+        },
+        "links": {
+          "self": {
+            "href": "http://private-5425b-brlive.apiary-mock.com/api/v3/user"
+          }
+        }
+      }
+    }
+    ```
+
+
+### Ver um atleta [GET]
+Retorna um atleta específico.
+
++ Response 200
+
+    [Atleta][]
+
+
+## Atleta autenticado [/user/athlete]
 
 + Model (application/json)
 
