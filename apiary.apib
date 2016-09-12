@@ -359,12 +359,11 @@ Uma lista de recursos do tipo Notificação relacionados à Inscrição.
 
     [Lista de Notificações][]
 
-## Lista de Alterações [/user/events/{event_id}/enrollments/{enrollment_id}/versions]
+## Lista de Alterações [/user/enrollments/{enrollment_id}/versions]
 Uma lista de recursos do tipo Version relacionados à Inscrição.
 
 + Parameters
-    + event_id: `23` (string) - O id do Evento.
-    + enrollment_id: `24772` (string) - O id da inscrição.
+    + enrollment_id: `40123` (string) - O id da inscrição.
 
 + Model (application/json)
 
@@ -372,65 +371,28 @@ Uma lista de recursos do tipo Version relacionados à Inscrição.
     {
       "data": [
         {
-          "id": "2",
-          "type": "versions",
-          "attributes": {
-            "title": "Transferência de inscrição",
-            "changes": [
+          "id": "3543",
+            "type": "paper-trail-versions",
+            "attributes": {
+              "item-type": "Enrollment",
+              "item-id": 40123,
+              "event": "update",
+              "created-at": "2016-09-12T10:36:09-03:00",
+              "changes": [
               {
-                "old": "Rafael Carvalho",
-                "new": "Thawan Fidelis"
-              },
-              {
-                "old": "25 a 30 anos",
-                "new": "20 a 25 anos"
-              },
-              {
-                "old": "Geral",
-                "new": "Bombeiros"
+                "old": "#4149",
+                "new": "#34873"
               }
-            ],
-            "change-message": "Solicitado por Rafael Carvalho e aceito pela Organização",
-            "created_at": "2016-10-24T15:50:07.000-03:00",
-            "kind": "enrollment"
-          },
-          "relationships": {
-          },
-          "links": {
-            "self": {
-              "href": "http://http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772/versions/2"
+              ],
+              "title": "Mudança de número de peito",
+              "change-message": "Editado por Leandro Naves"
             }
-          }
-        },
-        {
-          "id": "1",
-          "type": "versions",
-          "attributes": {
-            "title": "Mudança de faixa etária",
-            "changes": [
-              {
-                "old": "20 a 25 anos",
-                "new": "25 a 30 anos"
-              }
-            ],
-            "change-message": "Solicitado por Rafael Carvalho e aceito pela Organização",
-            "created_at": "2016-10-23T13:22:07.000-03:00",
-            "kind": "age_group"
-          },
-          "relationships": {
-          },
-          "links": {
-            "self": {
-              "href": "http://http://private-5425b-brlive.apiary-mock.com/api/v3/user/events/23/enrollments/24772/versions/1"
-            }
-          }
         }
-      ],
-      "included": [
       ],
       "links": {}
     }
     ```
+
 
 ### Listar Alterações de uma Inscrição [GET]
 
