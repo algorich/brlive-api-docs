@@ -961,13 +961,52 @@ Essa seção agrupa requisições para os recursos públicos associados à **Eve
     {
       "data": {
         "id": "1",
-        "type": "results",
+        "type": "enrollments",
         "attributes": {
-          ...
+          "chest-number": 3,
+          "final-net-time": "1:03:38",
+          "final-gross-time": "1:08:47",
+          "final-pace-time": "09:38",
+          "modality-general-final-position": 97,
+          "modality-age-group-final-position": 12,
+          "category-general-final-position": 38,
+          "category-age-group-final-position": 5
+        },
+        "relationships": {
+          "athletes": {
+            "data": [
+              {
+                "id": "1",
+                "type": "athletes"
+              }
+            ]
+          }
         }
-      }
+      },
+      "included": [
+        {
+          "id": "1",
+          "type": "athletes",
+          "attributes": {
+            "name": "Jonh Dee",
+            "email": "john@dee.com",
+            "birthday": "1990-10-23",
+            "document": "13232112378",
+            "phone": "9999999999",
+            "gender": "Masculino",
+            "avatar": "http://placehold.it/300x300",
+            "avatar-from-central": true
+          },
+          "links": {
+            "self": {
+              "href": "http://localhost:3000/api/v3/user/athletes/1"
+            }
+          }
+        }
+      ]
     }
     ```
+
 
 ### Ver resultado de um atleta [GET]
 Retorna o resultado de um atleta (ou equipe) no evento.
@@ -1042,7 +1081,7 @@ Retorna o resultado de um atleta (ou equipe) no evento.
               "href": "http://localhost:3000/api/v3/user/athletes/1"
             }
           }
-        }
+        },
         {
           "id": "2",
           "type": "athletes",
