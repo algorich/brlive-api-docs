@@ -11,16 +11,76 @@
       "data": [
         {
           "id": "1",
-          "type": "results",
+          "type": "enrollments",
           "attributes": {
-            ...
+            "chest-number": "2387",
+            "final-time": "01:03:37",
+            "final-position": "13"
+          },
+          "relationships": {
+            "athletes": {
+              "data": [
+                "id": "1",
+                "type": "athletes"
+              ]
+            }
           }
         },
         {
           "id": "2",
-          "type": "results",
+          "type": "enrollments",
           "attributes": {
-            ...
+            "chest-number": "3287",
+            "final-time": "01:00:28",
+            "final_position": "10"
+          },
+          "relationships": {
+            "athletes": {
+              "data": [
+                "id": "3",
+              "type": "athletes"
+              ]
+            }
+          }
+        }
+      ],
+      "included": [
+        {
+          "id": "1",
+          "type": "athletes",
+          "attributes": {
+            "name": "Jonh Dee",
+            "email": "john@dee.com",
+            "birthday": "1990-10-23",
+            "document": "13232112378",
+            "phone": "9999999999",
+            "gender": "Masculino",
+            "avatar": "http://placehold.it/300x300",
+            "avatar-from-central": true
+          },
+          "links": {
+            "self": {
+              "href": "http://localhost:3000/api/v3/user/athletes/1"
+            }
+          }
+        }
+        {
+          "id": "2",
+          "type": "athletes",
+          "attributes": {
+            "name": "Paul Dee",
+            "email": "paul@dee.com",
+            "birthday": "1990-10-23",
+            "document": "13232112378",
+            "phone": "9999999999",
+            "gender": "Masculino",
+            "avatar": "http://placehold.it/300x300",
+            "avatar-from-central": true
+          },
+          "links": {
+            "self": {
+              "href": "http://localhost:3000/api/v3/user/athletes/2"
+            }
           }
         }
       ]
